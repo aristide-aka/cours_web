@@ -48,7 +48,7 @@
   <section>
     <div class="container">
       <div class="stats-strip reveal">
-        <div class="stat-cell"><div class="num">10</div><div class="lbl">Chapitres</div></div>
+        <div class="stat-cell"><div class="num" id="stat-chapters">10</div><div class="lbl">Chapitres</div></div>
         <div class="stat-cell"><div class="num" id="stat-questions">77</div><div class="lbl">Questions de quiz</div></div>
         <div class="stat-cell"><div class="num" id="stat-progress">0%</div><div class="lbl">Votre progression</div></div>
         <div class="stat-cell"><div class="num" id="stat-avg">—</div><div class="lbl">Score moyen</div></div>
@@ -60,7 +60,7 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Programme</span>
-        <h2 style="margin-top:12px;">Dix chapitres, du premier <code class="inline" style="font-size:.6em;">←</code> à la recherche dichotomique</h2>
+        <h2 style="margin-top:12px;">Du premier <code class="inline" style="font-size:.6em;">←</code> à un vrai programme en langage C</h2>
         <p>Chaque chapitre combine une leçon illustrée et un quiz noté. Votre progression est sauvegardée automatiquement sur cet appareil.</p>
       </div>
       <div class="chapter-grid" id="chapter-grid"></div>
@@ -123,6 +123,7 @@
 <script>
   function renderChapterGrid() {
     const stats = Progress.overallStats(CHAPTERS_META);
+    document.getElementById("stat-chapters").textContent = CHAPTERS_META.length;
     document.getElementById("stat-questions").textContent = TOTAL_QUIZ_QUESTIONS;
     document.getElementById("stat-progress").textContent = stats.globalPct + "%";
     document.getElementById("stat-avg").textContent = stats.quizzesTaken ? stats.avgScore + "%" : "—";

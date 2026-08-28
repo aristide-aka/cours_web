@@ -21,7 +21,7 @@ function buildSidebar(activeId) {
     </a>`;
   }).join("");
   return `<div class="sidebar-group">
-    <div class="sidebar-group-title">Programme — 10 chapitres</div>
+    <div class="sidebar-group-title">Programme — ${CHAPTERS_META.length} chapitres</div>
     ${groups}
   </div>`;
 }
@@ -81,7 +81,7 @@ function renderChapterPage() {
     <header class="docs-header">
       <div class="docs-kicker">
         <div class="chapter-num">${meta.id}</div>
-        <span>Chapitre ${meta.id} sur 10</span>
+        <span>Chapitre ${meta.id} sur ${CHAPTERS_META.length}</span>
       </div>
       <h1><span class="chapter-icon lg">${meta.icon}</span>${meta.title}</h1>
       <p class="docs-lead">${content.lead}</p>

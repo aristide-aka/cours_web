@@ -101,7 +101,7 @@ const QuizEngine = (() => {
 
     els.card.innerHTML = `
       <div class="quiz-type-badge">${typeLabel(q.type)}</div>
-      ${q.code ? `<div class="quiz-code-embed">${renderCodeBlock(q.code, q.codeLabel || "pseudo-code")}</div>` : ""}
+      ${q.code ? `<div class="quiz-code-embed">${renderCodeBlock(q.code, q.codeLabel || "pseudo-code", q.lang || "pseudo")}</div>` : ""}
       <div class="quiz-question">${q.prompt}</div>
       <div class="quiz-options" id="quiz-options">
         ${q.options

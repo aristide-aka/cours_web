@@ -22,15 +22,19 @@ function renderBlock(block) {
     case "callout":
       return `<div class="callout callout-${block.variant}"><div class="icon">${ICONS[block.variant] || ICONS.info}</div><div class="body">${block.title ? `<strong>${block.title}</strong>` : ""}${block.html || `<p>${block.text}</p>`}</div></div>`;
     case "code":
-      return renderCodeBlock(block.code, block.label || "pseudo-code");
+      return renderCodeBlock(block.code, block.label || "pseudo-code", block.lang || "pseudo");
     case "syntax":
-      return `<div class="syntax-box">${block.title ? `<div class="syntax-title">${block.title}</div>` : ""}<pre>${highlightPseudocode(block.code.trim())}</pre></div>`;
+      return `<div class="syntax-box">${block.title ? `<div class="syntax-title">${block.title}</div>` : ""}<pre>${(block.lang === "c" ? highlightC : highlightPseudocode)(block.code.trim())}</pre></div>`;
     case "trace":
       return renderTrace(block);
     case "array":
       return renderArrayDiagram(block);
     case "compare":
       return renderCompare(block);
+    case "translate":
+      return renderTranslate(block);
+    case "table":
+      return renderDataTable(block);
     case "flow":
       return renderFlow(block);
     case "html":
@@ -72,6 +76,32 @@ function renderCompare(block) {
     <div class="compare-card bad"><div class="compare-head">${ICONS.pitfall} ${block.bad.title}</div><pre>${highlightPseudocode(block.bad.code.trim())}</pre></div>
     <div class="compare-card good"><div class="compare-head">${ICONS.check} ${block.good.title}</div><pre>${highlightPseudocode(block.good.code.trim())}</pre></div>
   </div>`;
+}
+
+function renderTranslate(block) {
+  const leftId = "tr-" + Math.random().toString(36).slice(2, 9);
+  const rightId = "tr-" + Math.random().toString(36).slice(2, 9);
+  return `<div class="translate-grid">
+    <div class="translate-card">
+      <div class="translate-head">${block.labelLeft || "Pseudo-code"}</div>
+      <pre class="translate-body"><code id="${leftId}">${highlightPseudocode(block.left.trim())}</code></pre>
+    </div>
+    <div class="translate-arrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </div>
+    <div class="translate-card c">
+      <div class="translate-head">${block.labelRight || "Langage C"}</div>
+      <pre class="translate-body"><code id="${rightId}">${highlightC(block.right.trim())}</code></pre>
+    </div>
+  </div>`;
+}
+
+function renderDataTable(block) {
+  const head = block.headers.map((h) => `<th>${h}</th>`).join("");
+  const rows = block.rows
+    .map((row) => `<tr>${row.map((cell, i) => `<td class="${i === 0 ? "instr" : ""}">${cell}</td>`).join("")}</tr>`)
+    .join("");
+  return `<div class="trace-table-wrap"><table class="trace-table data-table"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 
 function renderFlow(block) {
