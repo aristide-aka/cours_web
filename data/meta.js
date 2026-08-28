@@ -104,6 +104,24 @@ const CHAPTERS_META = [
     minutes: 22,
     quizCount: 9,
   },
+  {
+    id: "12",
+    slug: "python",
+    title: "Python",
+    short: "Traduire l'algorithme en Python : indentation, listes, fonctions et fichiers.",
+    icon: CI('<rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m7 10 3 2.5L7 15M13 15h4"/>'),
+    minutes: 20,
+    quizCount: 9,
+  },
+  {
+    id: "13",
+    slug: "php",
+    title: "PHP",
+    short: "Traduire l'algorithme en PHP : variables $, tableaux et scripts serveur.",
+    icon: CI('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15.5 0 18M12 3c-2.5 2.5-2.5 15.5 0 18"/>'),
+    minutes: 20,
+    quizCount: 9,
+  },
 ];
 
 const TOTAL_QUIZ_QUESTIONS = CHAPTERS_META.reduce((s, c) => s + c.quizCount, 0);

@@ -24,7 +24,7 @@ function renderBlock(block) {
     case "code":
       return renderCodeBlock(block.code, block.label || "pseudo-code", block.lang || "pseudo");
     case "syntax":
-      return `<div class="syntax-box">${block.title ? `<div class="syntax-title">${block.title}</div>` : ""}<pre>${(block.lang === "c" ? highlightC : highlightPseudocode)(block.code.trim())}</pre></div>`;
+      return `<div class="syntax-box">${block.title ? `<div class="syntax-title">${block.title}</div>` : ""}<pre>${(HIGHLIGHTERS[block.lang] || highlightPseudocode)(block.code.trim())}</pre></div>`;
     case "trace":
       return renderTrace(block);
     case "array":
@@ -81,6 +81,7 @@ function renderCompare(block) {
 function renderTranslate(block) {
   const leftId = "tr-" + Math.random().toString(36).slice(2, 9);
   const rightId = "tr-" + Math.random().toString(36).slice(2, 9);
+  const rightHighlighter = HIGHLIGHTERS[block.rightLang || "c"] || highlightC;
   return `<div class="translate-grid">
     <div class="translate-card">
       <div class="translate-head">${block.labelLeft || "Pseudo-code"}</div>
@@ -91,7 +92,7 @@ function renderTranslate(block) {
     </div>
     <div class="translate-card c">
       <div class="translate-head">${block.labelRight || "Langage C"}</div>
-      <pre class="translate-body"><code id="${rightId}">${highlightC(block.right.trim())}</code></pre>
+      <pre class="translate-body"><code id="${rightId}">${rightHighlighter(block.right.trim())}</code></pre>
     </div>
   </div>`;
 }
