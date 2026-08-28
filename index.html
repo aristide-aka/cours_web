@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Algo Academy — Cours &amp; quiz d'algorithmique</title>
+<meta name="description" content="Apprenez l'algorithmique de zéro : cours académique complet et quiz interactifs avec correction détaillée et visuelle." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧮</text></svg>" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">Σ</span> Algo&nbsp;Academy</a>
+    <nav class="main-nav">
+      <a href="index.html" data-nav="index.html">Accueil</a>
+      <a href="index.html#chapitres">Chapitres</a>
+      <a href="cours.html" data-nav="cours.html">Cours</a>
+      <a href="quiz.html" data-nav="quiz.html">Quiz</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" aria-label="Basculer le thème">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+      </button>
+      <button class="icon-btn hamburger" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="container">
+      <div class="hero-badge"><span class="dot"></span> Basé sur le programme officiel d'algorithmique</div>
+      <h1>Maîtrisez l'algorithmique<br class="hide-mobile"> comme un <span class="gradient-text">expert</span>.</h1>
+      <p class="lead">Un cours académique complet — variables, boucles, tableaux, fonctions, fichiers, tri &amp; recherche — suivi à chaque chapitre d'un quiz interactif avec correction détaillée et visuelle.</p>
+      <div class="hero-actions">
+        <a href="cours.html?ch=01" class="btn btn-primary btn-lg">Commencer le cours →</a>
+        <a href="#chapitres" class="btn btn-secondary btn-lg">Voir le programme</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="stats-strip reveal">
+        <div class="stat-cell"><div class="num">10</div><div class="lbl">Chapitres</div></div>
+        <div class="stat-cell"><div class="num" id="stat-questions">77</div><div class="lbl">Questions de quiz</div></div>
+        <div class="stat-cell"><div class="num" id="stat-progress">0%</div><div class="lbl">Votre progression</div></div>
+        <div class="stat-cell"><div class="num" id="stat-avg">—</div><div class="lbl">Score moyen</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="chapitres">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Programme</span>
+        <h2 style="margin-top:12px;">Dix chapitres, du premier <code class="inline" style="font-size:.6em;">←</code> à la recherche dichotomique</h2>
+        <p>Chaque chapitre combine une leçon illustrée et un quiz noté. Votre progression est sauvegardée automatiquement sur cet appareil.</p>
+      </div>
+      <div class="chapter-grid" id="chapter-grid"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Pourquoi Algo Academy</span>
+        <h2>Conçu pour vraiment comprendre, pas seulement mémoriser</h2>
+      </div>
+      <div class="feature-grid reveal">
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18M3 15v4a2 2 0 0 0 2 2h4M21 9v10a2 2 0 0 1-2 2h-4"/></svg></div>
+          <h3>Notation académique fidèle</h3>
+          <p>Pseudo-code standard (<code class="inline">Variable</code>, <code class="inline">Si…Alors</code>, <code class="inline">TantQue</code>, <code class="inline">Pour</code>) tel qu'exigé à l'examen, avec coloration syntaxique.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 15l4-4 4 4 5-6"/></svg></div>
+          <h3>Traces d'exécution visuelles</h3>
+          <p>Chaque notion clé est accompagnée d'un tableau de trace pas-à-pas montrant l'évolution des variables, ligne par ligne.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2 2-2.5 3M12 17h.01"/></svg></div>
+          <h3>Correction détaillée, à chaque question</h3>
+          <p>Aucune réponse laissée sans explication : le raisonnement complet, les pièges classiques et le résultat attendu sont toujours détaillés.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="chapter-cta reveal" style="margin-top:0;">
+        <div>
+          <h3>Votre progression est locale et privée</h3>
+          <p>Elle est stockée uniquement dans ce navigateur (localStorage) — aucun compte, aucun serveur.</p>
+        </div>
+        <button class="btn btn-secondary" id="reset-progress-btn">Réinitialiser ma progression</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Algo Academy — cours et quiz d'algorithmique, conçu pour l'auto-apprentissage.</p>
+    <div class="footer-links">
+      <a href="cours.html?ch=01">Cours</a>
+      <a href="quiz.html?ch=01">Quiz</a>
+      <a href="#chapitres">Programme</a>
+    </div>
+  </div>
+</footer>
+
+<script src="data/meta.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/app.js"></script>
+<script>
+  function renderChapterGrid() {
+    const stats = Progress.overallStats(CHAPTERS_META);
+    document.getElementById("stat-questions").textContent = TOTAL_QUIZ_QUESTIONS;
+    document.getElementById("stat-progress").textContent = stats.globalPct + "%";
+    document.getElementById("stat-avg").textContent = stats.quizzesTaken ? stats.avgScore + "%" : "—";
+
+    const grid = document.getElementById("chapter-grid");
+    grid.innerHTML = CHAPTERS_META.map((c) => {
+      const pct = Progress.chapterProgress(c.id);
+      const done = pct >= 100;
+      const quiz = Progress.quizResult(c.id);
+      return `
+      <div class="chapter-card reveal ${done ? "done" : ""}">
+        <div class="chapter-card-top">
+          <div class="chapter-num">${done ? "✓" : c.id}</div>
+          <div class="chapter-badge ${done ? "done" : ""}">${done ? "Terminé" : c.minutes + " min"}</div>
+        </div>
+        <h3><span class="chapter-icon">${c.icon}</span>${c.title}</h3>
+        <p>${c.short}</p>
+        <div class="chapter-progress">
+          <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+          <div class="progress-pct">${pct}%</div>
+        </div>
+        <div class="chapter-card-actions">
+          <a class="btn btn-secondary btn-sm" href="cours.html?ch=${c.id}">Cours</a>
+          <a class="btn btn-primary btn-sm" href="quiz.html?ch=${c.id}">${quiz ? "Refaire le quiz" : "Quiz"}</a>
+        </div>
+      </div>`;
+    }).join("");
+
+    document.querySelectorAll(".chapter-card.reveal").forEach((el) => el.classList.add("in-view"));
+  }
+
+  document.getElementById("reset-progress-btn").addEventListener("click", () => {
+    if (confirm("Réinitialiser toute votre progression sur cet appareil ?")) {
+      Progress.reset();
+      renderChapterGrid();
+      showToast("Progression réinitialisée");
+    }
+  });
+
+  renderChapterGrid();
+</script>
+</body>
+</html>
