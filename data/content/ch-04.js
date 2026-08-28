@@ -7,6 +7,12 @@ window.CHAPTERS_CONTENT["04"] = {
       title: "Rappel : les expressions booléennes",
       blocks: [
         { type: "p", text: "Une expression comme <code class=\"inline\">Age > 18</code> ne vaut ni un nombre, ni du texte : elle vaut <code class=\"inline\">Vrai</code> ou <code class=\"inline\">Faux</code>. On dit qu'elle est de type Booléen. Les opérateurs logiques combinent entre elles des expressions booléennes pour en former une nouvelle." },
+        {
+          type: "callout",
+          variant: "tip",
+          title: "Analogie : l'alarme de la maison",
+          text: "Imaginez une alarme qui ne se déclenche que si la porte <strong>ET</strong> la fenêtre sont ouvertes en même temps : les deux conditions doivent être vraies. À l'inverse, vous prenez un parapluie s'il pleut <strong>OU</strong> s'il fait très venteux : une seule des deux conditions suffit. Et si l'on vous dit « il ne pleut <strong>pas</strong> », c'est l'opérateur NON qui vient d'inverser l'information.",
+        },
       ],
     },
     {
@@ -79,7 +85,7 @@ FinSi`,
             { instr: "Faux", values: { A: "Faux", "NON A": "Vrai" }, changed: ["NON A"] },
           ],
         },
-        { type: "p", text: "<code class=\"inline\">NON (N &gt; 0)</code> équivaut à <code class=\"inline\">N &lt;= 0</code>. Il est en général plus lisible de reformuler directement la condition inverse plutôt que d'empiler les NON, mais l'opérateur reste indispensable dès qu'on teste un booléen ou un drapeau : <code class=\"inline\">TantQue NON Trouvé</code>." },
+        { type: "p", text: "<code class=\"inline\">NON (N &gt; 0)</code> équivaut à <code class=\"inline\">N &lt;= 0</code>. Il est en général plus lisible de reformuler directement la condition inverse plutôt que d'empiler les NON, mais l'opérateur reste indispensable dès qu'on teste directement une variable Booléen : <code class=\"inline\">Si NON Trouve Alors</code> se lit naturellement « si ce n'est pas trouvé »." },
       ],
     },
     {

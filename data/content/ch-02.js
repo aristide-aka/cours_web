@@ -21,12 +21,12 @@ window.CHAPTERS_CONTENT["02"] = {
         {
           type: "code",
           label: "affichage",
-          code: `Variables N, i en Entier
+          code: `Variables Largeur, Longueur, Aire en Entier
 Début
-  N ← 7
-  Pour i ← 1 à 10
-    Écrire N, " x ", i, " = ", N * i
-  i Suivant
+  Largeur ← 4
+  Longueur ← 7
+  Aire ← Largeur * Longueur
+  Écrire Largeur, " x ", Longueur, " = ", Aire
 Fin`,
         },
         { type: "p", text: "Chaque élément séparé par une virgule est affiché à la suite des autres, sans retour à la ligne automatique entre eux (mais chaque nouvel appel à <code class=\"inline\">Écrire</code> commence en général une nouvelle ligne à l'écran)." },

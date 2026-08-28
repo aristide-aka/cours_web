@@ -8,6 +8,12 @@ window.CHAPTERS_CONTENT["03"] = {
       blocks: [
         { type: "p", text: "Une structure conditionnelle évalue une expression qui ne peut valoir que Vrai ou Faux (on parle d'expression booléenne), puis aiguille l'exécution vers un bloc d'instructions ou vers un autre selon le résultat." },
         {
+          type: "callout",
+          variant: "tip",
+          title: "Analogie : l'aiguillage de train",
+          text: "Un test, c'est comme un aiguillage sur une voie ferrée : selon la position du levier (la condition), le train part vers la gauche ou vers la droite — jamais les deux à la fois, et jamais nulle part. L'algorithme fonctionne de la même façon : une seule des branches Alors ou Sinon s'exécute.",
+        },
+        {
           type: "syntax",
           title: "Syntaxe minimale",
           code: `Si <condition> Alors

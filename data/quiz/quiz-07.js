@@ -38,21 +38,23 @@ window.QUIZZES["07"] = [
   },
   {
     type: "trace",
-    code: `Fonction NbVoyelles(Mot en Caractère)
-  Variables i, Nb en Entier
+    code: `Variable Mot en Caractère
+Variables i, Nb en Entier
+Début
+  Mot ← "pseudo"
   Nb ← 0
   Pour i ← 1 à Len(Mot)
     Si Trouve("aeiouy", Mid(Mot, i, 1)) <> 0 Alors
       Nb ← Nb + 1
     FinSi
   i Suivant
-  Renvoyer Nb
-FinFonction`,
-    prompt: "Que renvoie <code class=\"inline\">NbVoyelles(\"pseudo\")</code> ?",
+  Écrire Nb
+Fin`,
+    prompt: "Que va afficher cet algorithme ?",
     options: ["2", "3", "4", "1"],
     correct: 1,
     explain: [
-      { type: "p", text: "\"pseudo\" contient les lettres p-s-e-u-d-o. Parmi elles, e, u et o sont des voyelles (au sens large incluant y) : trois lettres sur six déclenchent le compteur. NbVoyelles renvoie donc 3." },
+      { type: "p", text: "\"pseudo\" contient les lettres p-s-e-u-d-o. Parmi elles, e, u et o sont des voyelles (au sens large incluant y) : trois lettres sur six déclenchent le compteur. Nb vaut donc 3, qui est la valeur affichée." },
     ],
   },
   {

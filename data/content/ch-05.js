@@ -7,6 +7,12 @@ window.CHAPTERS_CONTENT["05"] = {
       title: "Pourquoi répéter ?",
       blocks: [
         { type: "p", text: "Imaginez devoir afficher la table de multiplication de 7 sans boucle : il faudrait écrire dix lignes de calcul quasi identiques. Une boucle exprime cette répétition une seule fois, en décrivant le motif qui varie (ici, le multiplicateur) plutôt que chaque cas particulier." },
+        {
+          type: "callout",
+          variant: "tip",
+          title: "Analogie : le tour de manège",
+          text: "Une boucle, c'est comme un manège : le même tour de piste se répète, encore et encore, jusqu'à ce qu'un signal dise « stop » (un nombre de tours atteint, ou une condition remplie). Vous n'avez pas besoin de décrire chaque tour un par un — vous décrivez le tour une seule fois, et le mécanisme se charge de le répéter.",
+        },
         { type: "p", text: "Le pseudo-code académique propose trois structures de boucle, chacune adaptée à une situation différente : <code class=\"inline\">TantQue</code>, <code class=\"inline\">Pour</code>, et <code class=\"inline\">Répéter...Jusqu'à</code>." },
       ],
     },

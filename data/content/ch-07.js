@@ -7,6 +7,12 @@ window.CHAPTERS_CONTENT["07"] = {
       title: "Rappel : le type Caractère",
       blocks: [
         { type: "p", text: "Une variable de type Caractère (ou Chaîne) contient du texte entre guillemets. On peut se représenter une chaîne comme un petit tableau de lettres, chacune repérée par sa position — ce qui explique pourquoi les fonctions de ce chapitre ressemblent à celles des tableaux." },
+        {
+          type: "callout",
+          variant: "tip",
+          title: "Analogie : un train de wagons-lettres",
+          text: "Imaginez le mot \"algo\" comme un petit train de quatre wagons, chacun ne transportant qu'une seule lettre, numérotés dans l'ordre. Len compte le nombre de wagons. Mid détache un groupe de wagons consécutifs. Trouve cherche si une suite de wagons précise apparaît quelque part dans le train.",
+        },
       ],
     },
     {
@@ -70,19 +76,28 @@ Fin`,
         { type: "p", text: "<code class=\"inline\">Trouve(chaîne, motif)</code> cherche la première occurrence de <em>motif</em> à l'intérieur de <em>chaîne</em>, et renvoie sa position (numérotée à partir de 1). Si le motif est absent, elle renvoie 0." },
         {
           type: "code",
-          label: "exercice 11.2 — compter les voyelles",
-          code: `Fonction NbVoyelles(Mot en Caractère)
-  Variables i, Nb en Entier
+          label: "compter-voyelles.algo",
+          code: `Variable Mot en Caractère
+Variables i, Nb en Entier
+Début
+  Écrire "Entrez un mot : "
+  Lire Mot
   Nb ← 0
   Pour i ← 1 à Len(Mot)
     Si Trouve("aeiouy", Mid(Mot, i, 1)) <> 0 Alors
       Nb ← Nb + 1
     FinSi
   i Suivant
-  Renvoyer Nb
-FinFonction`,
+  Écrire "Nombre de voyelles : ", Nb
+Fin`,
         },
         { type: "p", text: "L'astuce est élégante : plutôt que d'écrire six comparaisons (<code class=\"inline\">Mid(Mot,i,1) = \"a\" OU ... = \"e\" OU ...</code>), on cherche si la lettre courante figure quelque part dans la chaîne <code class=\"inline\">\"aeiouy\"</code>. <code class=\"inline\">Trouve</code> renvoie une position différente de 0 dès qu'elle trouve une correspondance, quelle qu'elle soit." },
+        {
+          type: "callout",
+          variant: "info",
+          title: "Pour aller plus loin",
+          text: "Ce traitement gagnerait à être isolé dans une fonction réutilisable <code class=\"inline\">NbVoyelles</code> — c'est exactement ce que vous apprendrez à faire au chapitre 8.",
+        },
       ],
     },
     {
@@ -93,10 +108,11 @@ FinFonction`,
         {
           type: "code",
           label: "cryptographie — décalage de 1 (chiffre de César simplifié)",
-          code: `Fonction Coder(Phrase en Caractère)
-  Variables i, Alpha en Entier
-  Variable C en Caractère
-  Variable Resultat en Caractère
+          code: `Variables Phrase, Resultat, C en Caractère
+Variables i, Alpha en Entier
+Début
+  Écrire "Entrez une phrase : "
+  Lire Phrase
   Resultat ← ""
   Pour i ← 1 à Len(Phrase)
     C ← Mid(Phrase, i, 1)
@@ -107,8 +123,8 @@ FinFonction`,
       Resultat ← Resultat & C     // espace, ponctuation... inchangés
     FinSi
   i Suivant
-  Renvoyer Resultat
-FinFonction`,
+  Écrire "Phrase codée : ", Resultat
+Fin`,
         },
         { type: "p", text: "Ce principe — trouver la position de la lettre dans l'alphabet normal, puis lire le caractère à la même position dans un alphabet décalé — est la base de tous les chiffres de substitution, du plus simple (César) au plus élaboré (Vigenère)." },
       ],
