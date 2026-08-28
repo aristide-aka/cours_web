@@ -28,7 +28,7 @@ const QuizEngine = (() => {
     els.root = document.getElementById("quiz-root");
 
     if (!meta || !questions || !questions.length) {
-      els.root.innerHTML = `<div class="quiz-intro"><h1>Quiz introuvable</h1><p class="lead">Retournez à l'accueil pour choisir un chapitre.</p><a class="btn btn-primary" href="index.html">Retour à l'accueil</a></div>`;
+      els.root.innerHTML = `<div class="quiz-intro"><h1>Quiz introuvable</h1><p class="lead">Retournez à l'accueil pour choisir un chapitre.</p><a class="btn btn-primary" href="../index.html">Retour à l'accueil</a></div>`;
       return;
     }
 
@@ -40,8 +40,8 @@ const QuizEngine = (() => {
 
   function renderIntro() {
     const { meta, questions, chapterId } = state;
-    const best = Progress.quizResult(chapterId);
-    document.title = `Quiz — ${meta.title} — Algo Academy`;
+    const best = Progress.quizResult(window.MODULE_ID, chapterId);
+    document.title = `Quiz — ${meta.title} — ${window.MODULE_NAME} — Algo Academy`;
     els.root.innerHTML = `
       <div class="quiz-intro reveal in-view">
         <div class="chapter-num">${meta.icon}</div>
@@ -177,7 +177,7 @@ const QuizEngine = (() => {
     const total = state.questions.length;
     const correctCount = state.answers.filter((a) => a.isCorrect).length;
     const pct = Math.round((correctCount / total) * 100);
-    const result = Progress.recordQuizResult(state.chapterId, pct, correctCount, total);
+    const result = Progress.recordQuizResult(window.MODULE_ID, state.chapterId, pct, correctCount, total);
     const elapsed = Math.max(1, Math.round((Date.now() - state.startedAt) / 1000));
 
     const idx = chapterIndex(state.chapterId);
@@ -229,7 +229,7 @@ const QuizEngine = (() => {
         <div class="result-actions">
           <button class="btn btn-secondary" id="retry-btn">↺ Recommencer</button>
           <a class="btn btn-secondary" href="cours.html?ch=${state.chapterId}">Revoir le cours</a>
-          ${next ? `<a class="btn btn-primary" href="quiz.html?ch=${next.id}">Chapitre suivant →</a>` : `<a class="btn btn-primary" href="index.html">Retour à l'accueil</a>`}
+          ${next ? `<a class="btn btn-primary" href="quiz.html?ch=${next.id}">Chapitre suivant →</a>` : `<a class="btn btn-primary" href="../index.html">Retour à l'accueil</a>`}
         </div>
         <div class="review-list">
           ${state.answers

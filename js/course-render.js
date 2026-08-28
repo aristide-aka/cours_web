@@ -1,11 +1,17 @@
 /**
  * course-render.js — moteur de rendu du cours.
- * Transforme les données déclaratives de data/content/*.js en HTML
+ * Transforme les données déclaratives de data/content/ch-XX.js en HTML
  * (prose, callouts, blocs de code, tables de trace, diagrammes de tableaux…)
  * et construit la sidebar / la table des matières de cours.html.
+ *
+ * Ce fichier est PARTAGÉ par les 4 modules (algorithmique, langage-c, python,
+ * php). Chaque page cours.html doit définir, avant de charger ce script :
+ *   - window.MODULE_ID    (ex: "python") → utilisé pour namespacer Progress
+ *   - window.MODULE_NAME  (ex: "Python") → affiché dans le fil d'Ariane
+ *   - CHAPTERS_META, chapterById(), chapterIndex() (via son propre data/meta.js)
  */
 
-function renderSection(section, chapterId) {
+function renderSection(section) {
   const blocks = section.blocks.map(renderBlock).join("\n");
   return `<h2 id="${section.id}">${section.title}</h2>\n${blocks}`;
 }
@@ -13,7 +19,7 @@ function renderSection(section, chapterId) {
 function buildSidebar(activeId) {
   const groups = CHAPTERS_META.map((c) => {
     const active = c.id === activeId;
-    const done = Progress.isChapterRead(c.id);
+    const done = Progress.isChapterRead(window.MODULE_ID, c.id);
     return `<a class="sidebar-link ${active ? "active" : ""} ${done ? "complete" : ""}" href="cours.html?ch=${c.id}">
       <span class="chip">${done ? "✓" : c.id}</span>
       <span>${c.title}</span>
@@ -58,11 +64,11 @@ function renderChapterPage() {
   const content = window.CHAPTERS_CONTENT && window.CHAPTERS_CONTENT[id];
 
   if (!meta || !content) {
-    document.querySelector(".docs-main").innerHTML = `<div class="quiz-intro"><h1>Chapitre introuvable</h1><p class="lead">Retournez à l'accueil pour choisir un chapitre.</p><a class="btn btn-primary" href="index.html">Retour à l'accueil</a></div>`;
+    document.querySelector(".docs-main").innerHTML = `<div class="quiz-intro"><h1>Chapitre introuvable</h1><p class="lead">Retournez à l'accueil pour choisir un chapitre.</p><a class="btn btn-primary" href="../index.html">Retour à l'accueil</a></div>`;
     return;
   }
 
-  document.title = `${meta.title} — Algo Academy`;
+  document.title = `${meta.title} — ${window.MODULE_NAME} — Algo Academy`;
   document.getElementById("sidebar-slot").innerHTML = buildSidebar(id);
   document.getElementById("toc-slot").innerHTML = buildToc(content.sections);
 
@@ -72,9 +78,9 @@ function renderChapterPage() {
 
   document.getElementById("docs-main-content").innerHTML = `
     <div class="docs-breadcrumb">
-      <a href="index.html">Accueil</a>
+      <a href="../index.html">Accueil</a>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
-      <a href="index.html#chapitres">Chapitres</a>
+      <a href="cours.html">${window.MODULE_NAME}</a>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
       <span>${meta.title}</span>
     </div>
@@ -91,7 +97,7 @@ function renderChapterPage() {
       </div>
     </header>
     <div class="prose">
-      ${content.sections.map((s) => renderSection(s, id)).join("\n")}
+      ${content.sections.map((s) => renderSection(s)).join("\n")}
     </div>
     <div class="chapter-cta" id="chapter-end-marker">
       <div>
@@ -115,8 +121,8 @@ function renderChapterPage() {
       (entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) {
-            const wasRead = Progress.isChapterRead(id);
-            Progress.markChapterRead(id);
+            const wasRead = Progress.isChapterRead(window.MODULE_ID, id);
+            Progress.markChapterRead(window.MODULE_ID, id);
             if (!wasRead) showToast(`Chapitre "${meta.title}" marqué comme lu ✓`);
             document.querySelector(`.sidebar-link[href="cours.html?ch=${id}"]`)?.classList.add("complete");
             io.disconnect();

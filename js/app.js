@@ -3,10 +3,17 @@
  * bascule de thème, navigation mobile, révélation au scroll, toast, confettis.
  */
 
+/**
+ * Met en surbrillance le lien de navigation actif. Chaque lien porte un
+ * attribut data-module (ex: "python") comparé au dossier courant de l'URL
+ * (ex: /python/cours.html → module "python"), ou data-module="accueil"
+ * pour la page d'accueil à la racine.
+ */
 function setActiveNav() {
-  const path = location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll(".main-nav a[data-nav]").forEach((a) => {
-    a.classList.toggle("active", a.dataset.nav === path);
+  const segments = location.pathname.split("/").filter(Boolean);
+  const currentModule = segments.length > 1 ? segments[segments.length - 2] : "accueil";
+  document.querySelectorAll(".main-nav a[data-module]").forEach((a) => {
+    a.classList.toggle("active", a.dataset.module === currentModule);
   });
 }
 

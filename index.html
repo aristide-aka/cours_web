@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Algo Academy — Cours &amp; quiz d'algorithmique</title>
-<meta name="description" content="Apprenez l'algorithmique de zéro : cours académique complet et quiz interactifs avec correction détaillée et visuelle." />
+<title>Algo Academy — Apprendre à programmer, de zéro</title>
+<meta name="description" content="Quatre parcours complets pour apprendre à programmer : Algorithmique, Langage C, Python et PHP. Cours illustrés et quiz interactifs pour grands débutants." />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧮</text></svg>" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -14,10 +14,11 @@
   <div class="container">
     <a href="index.html" class="brand"><span class="brand-mark">Σ</span> Algo&nbsp;Academy</a>
     <nav class="main-nav">
-      <a href="index.html" data-nav="index.html">Accueil</a>
-      <a href="index.html#chapitres">Chapitres</a>
-      <a href="cours.html" data-nav="cours.html">Cours</a>
-      <a href="quiz.html" data-nav="quiz.html">Quiz</a>
+      <a href="index.html" data-module="accueil">Accueil</a>
+      <a href="algorithmique/cours.html" data-module="algorithmique">Algorithmique</a>
+      <a href="langage-c/cours.html" data-module="langage-c">Langage C</a>
+      <a href="python/cours.html" data-module="python">Python</a>
+      <a href="php/cours.html" data-module="php">PHP</a>
     </nav>
     <div class="header-actions">
       <button class="icon-btn theme-toggle" aria-label="Basculer le thème">
@@ -35,12 +36,12 @@
   <section class="hero">
     <div class="hero-glow"></div>
     <div class="container">
-      <div class="hero-badge"><span class="dot"></span> Basé sur le programme officiel d'algorithmique</div>
-      <h1>Maîtrisez l'algorithmique<br class="hide-mobile"> comme un <span class="gradient-text">expert</span>.</h1>
-      <p class="lead">Un cours académique complet — variables, boucles, tableaux, fonctions, fichiers, tri &amp; recherche — suivi à chaque chapitre d'un quiz interactif avec correction détaillée et visuelle.</p>
+      <div class="hero-badge"><span class="dot"></span> Pour un débutant qui n'a jamais programmé</div>
+      <h1>Apprenez à programmer,<br class="hide-mobile"> un langage à la <span class="gradient-text">fois</span>.</h1>
+      <p class="lead">Quatre parcours complets et progressifs — Algorithmique, Langage C, Python et PHP — chacun avec des cours illustrés et des quiz corrigés en détail. Commencez par la logique, puis choisissez votre langage.</p>
       <div class="hero-actions">
-        <a href="cours.html?ch=01" class="btn btn-primary btn-lg">Commencer le cours →</a>
-        <a href="#chapitres" class="btn btn-secondary btn-lg">Voir le programme</a>
+        <a href="algorithmique/cours.html?ch=01" class="btn btn-primary btn-lg">Commencer par l'algorithmique →</a>
+        <a href="#modules" class="btn btn-secondary btn-lg">Voir les 4 parcours</a>
       </div>
     </div>
   </section>
@@ -48,22 +49,22 @@
   <section>
     <div class="container">
       <div class="stats-strip reveal">
-        <div class="stat-cell"><div class="num" id="stat-chapters">10</div><div class="lbl">Chapitres</div></div>
-        <div class="stat-cell"><div class="num" id="stat-questions">77</div><div class="lbl">Questions de quiz</div></div>
+        <div class="stat-cell"><div class="num" id="stat-modules">4</div><div class="lbl">Parcours</div></div>
+        <div class="stat-cell"><div class="num" id="stat-chapters">—</div><div class="lbl">Chapitres au total</div></div>
         <div class="stat-cell"><div class="num" id="stat-progress">0%</div><div class="lbl">Votre progression</div></div>
         <div class="stat-cell"><div class="num" id="stat-avg">—</div><div class="lbl">Score moyen</div></div>
       </div>
     </div>
   </section>
 
-  <section id="chapitres">
+  <section id="modules">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow">Programme</span>
-        <h2 style="margin-top:12px;">Du premier <code class="inline" style="font-size:.6em;">←</code> à un vrai programme en langage C</h2>
-        <p>Chaque chapitre combine une leçon illustrée et un quiz noté. Votre progression est sauvegardée automatiquement sur cet appareil.</p>
+        <span class="eyebrow">Les 4 parcours</span>
+        <h2 style="margin-top:12px;">Dans quel ordre progresser ?</h2>
+        <p>Commencez par l'algorithmique — la logique commune à tous les langages — puis choisissez votre langage. Chaque parcours se suffit à lui-même, mais l'ordre proposé est le plus progressif.</p>
       </div>
-      <div class="chapter-grid" id="chapter-grid"></div>
+      <div class="chapter-grid" id="module-grid"></div>
     </div>
   </section>
 
@@ -76,18 +77,18 @@
       <div class="feature-grid reveal">
         <div class="feature-card">
           <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18M3 15v4a2 2 0 0 0 2 2h4M21 9v10a2 2 0 0 1-2 2h-4"/></svg></div>
-          <h3>Notation académique fidèle</h3>
-          <p>Pseudo-code standard (<code class="inline">Variable</code>, <code class="inline">Si…Alors</code>, <code class="inline">TantQue</code>, <code class="inline">Pour</code>) tel qu'exigé à l'examen, avec coloration syntaxique.</p>
+          <h3>Zéro jargon non expliqué</h3>
+          <p>Chaque notion est présentée avec une analogie concrète avant sa syntaxe — pensé pour quelqu'un qui n'a jamais écrit une ligne de code.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 15l4-4 4 4 5-6"/></svg></div>
-          <h3>Traces d'exécution visuelles</h3>
-          <p>Chaque notion clé est accompagnée d'un tableau de trace pas-à-pas montrant l'évolution des variables, ligne par ligne.</p>
+          <h3>Progression stricte</h3>
+          <p>Aucune notion n'est utilisée avant d'avoir été expliquée. Chaque chapitre ne s'appuie que sur ce qui précède.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2 2-2.5 3M12 17h.01"/></svg></div>
           <h3>Correction détaillée, à chaque question</h3>
-          <p>Aucune réponse laissée sans explication : le raisonnement complet, les pièges classiques et le résultat attendu sont toujours détaillés.</p>
+          <p>Aucune réponse de quiz laissée sans explication : le raisonnement complet est toujours détaillé.</p>
         </div>
       </div>
     </div>
@@ -98,9 +99,9 @@
       <div class="chapter-cta reveal" style="margin-top:0;">
         <div>
           <h3>Votre progression est locale et privée</h3>
-          <p>Elle est stockée uniquement dans ce navigateur (localStorage) — aucun compte, aucun serveur.</p>
+          <p>Elle est stockée uniquement dans ce navigateur (localStorage), séparément pour chaque parcours — aucun compte, aucun serveur.</p>
         </div>
-        <button class="btn btn-secondary" id="reset-progress-btn">Réinitialiser ma progression</button>
+        <button class="btn btn-secondary" id="reset-progress-btn">Réinitialiser toute ma progression</button>
       </div>
     </div>
   </section>
@@ -108,62 +109,100 @@
 
 <footer class="site-footer">
   <div class="container">
-    <p>Algo Academy — cours et quiz d'algorithmique, conçu pour l'auto-apprentissage.</p>
+    <p>Algo Academy — cours et quiz de programmation, conçu pour l'auto-apprentissage.</p>
     <div class="footer-links">
-      <a href="cours.html?ch=01">Cours</a>
-      <a href="quiz.html?ch=01">Quiz</a>
-      <a href="#chapitres">Programme</a>
+      <a href="algorithmique/cours.html">Algorithmique</a>
+      <a href="langage-c/cours.html">Langage C</a>
+      <a href="python/cours.html">Python</a>
+      <a href="php/cours.html">PHP</a>
     </div>
   </div>
 </footer>
 
-<script src="data/meta.js"></script>
 <script src="js/progress.js"></script>
 <script src="js/app.js"></script>
+<script src="algorithmique/data/meta.js"></script>
+<script src="langage-c/data/meta.js"></script>
+<script src="python/data/meta.js"></script>
+<script src="php/data/meta.js"></script>
 <script>
-  function renderChapterGrid() {
-    const stats = Progress.overallStats(CHAPTERS_META);
-    document.getElementById("stat-chapters").textContent = CHAPTERS_META.length;
-    document.getElementById("stat-questions").textContent = TOTAL_QUIZ_QUESTIONS;
-    document.getElementById("stat-progress").textContent = stats.globalPct + "%";
-    document.getElementById("stat-avg").textContent = stats.quizzesTaken ? stats.avgScore + "%" : "—";
+  const MODULES = [
+    {
+      id: "algorithmique",
+      name: "Algorithmique",
+      tagline: "La logique de base, sans langage réel : variables, conditions, boucles, tableaux, fonctions.",
+      path: "algorithmique/",
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4H5a1 1 0 0 0-1 1v4M15 4h4a1 1 0 0 1 1 1v4M9 20H5a1 1 0 0 1-1-1v-4M15 20h4a1 1 0 0 0 1-1v-4"/><path d="M8 12h8M12 8v8"/></svg>`,
+    },
+    {
+      id: "langage-c",
+      name: "Langage C",
+      tagline: "Traduire le pseudo-code en un vrai programme C qui compile et s'exécute.",
+      path: "langage-c/",
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3.5c-2 0-3 1-3 3v2.7c0 1.2-.6 2.3-2 2.8 1.4.5 2 1.6 2 2.8v2.7c0 2 1 3 3 3M16 3.5c2 0 3 1 3 3v2.7c0 1.2.6 2.3 2 2.8-1.4.5-2 1.6-2 2.8v2.7c0 2-1 3-3 3"/></svg>`,
+    },
+    {
+      id: "python",
+      name: "Python",
+      tagline: "Un langage réputé pour sa simplicité — idéal pour découvrir la programmation moderne.",
+      path: "python/",
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m7 10 3 2.5L7 15M13 15h4"/></svg>`,
+    },
+    {
+      id: "php",
+      name: "PHP",
+      tagline: "Le langage historique du web dynamique — pour comprendre comment un site réagit à ses visiteurs.",
+      path: "php/",
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15.5 0 18M12 3c-2.5 2.5-2.5 15.5 0 18"/></svg>`,
+    },
+  ];
 
-    const grid = document.getElementById("chapter-grid");
-    grid.innerHTML = CHAPTERS_META.map((c) => {
-      const pct = Progress.chapterProgress(c.id);
-      const done = pct >= 100;
-      const quiz = Progress.quizResult(c.id);
-      return `
-      <div class="chapter-card reveal ${done ? "done" : ""}">
-        <div class="chapter-card-top">
-          <div class="chapter-num">${done ? "✓" : c.id}</div>
-          <div class="chapter-badge ${done ? "done" : ""}">${done ? "Terminé" : c.minutes + " min"}</div>
-        </div>
-        <h3><span class="chapter-icon">${c.icon}</span>${c.title}</h3>
-        <p>${c.short}</p>
-        <div class="chapter-progress">
-          <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
-          <div class="progress-pct">${pct}%</div>
-        </div>
-        <div class="chapter-card-actions">
-          <a class="btn btn-secondary btn-sm" href="cours.html?ch=${c.id}">Cours</a>
-          <a class="btn btn-primary btn-sm" href="quiz.html?ch=${c.id}">${quiz ? "Refaire le quiz" : "Quiz"}</a>
-        </div>
-      </div>`;
-    }).join("");
+  function renderModuleGrid() {
+    const modulesWithMeta = MODULES.map((m) => ({ ...m, meta: window.MODULE_CHAPTERS[m.id] }));
 
-    document.querySelectorAll(".chapter-card.reveal").forEach((el) => el.classList.add("in-view"));
+    const totalChapters = modulesWithMeta.reduce((s, m) => s + m.meta.length, 0);
+    document.getElementById("stat-chapters").textContent = totalChapters;
+
+    const g = Progress.globalStats(modulesWithMeta.map((m) => ({ id: m.id, meta: m.meta })));
+    document.getElementById("stat-progress").textContent = g.globalPct + "%";
+    document.getElementById("stat-avg").textContent = g.quizzesTaken ? g.avgScore + "%" : "—";
+
+    const grid = document.getElementById("module-grid");
+    grid.innerHTML = modulesWithMeta
+      .map((m) => {
+        const stats = Progress.overallStats(m.id, m.meta);
+        const done = stats.globalPct >= 100;
+        const started = stats.chaptersRead > 0 || stats.quizzesTaken > 0;
+        return `
+        <div class="chapter-card reveal in-view ${done ? "done" : ""}">
+          <div class="chapter-card-top">
+            <div class="chapter-num">${done ? "✓" : m.icon}</div>
+            <div class="chapter-badge ${done ? "done" : ""}">${done ? "Terminé" : m.meta.length + " chapitres"}</div>
+          </div>
+          <h3>${m.name}</h3>
+          <p>${m.tagline}</p>
+          <div class="chapter-progress">
+            <div class="progress-track"><div class="progress-fill" style="width:${stats.globalPct}%"></div></div>
+            <div class="progress-pct">${stats.globalPct}%</div>
+          </div>
+          <div class="chapter-card-actions">
+            <a class="btn btn-secondary btn-sm" href="${m.path}cours.html">Cours</a>
+            <a class="btn btn-primary btn-sm" href="${m.path}quiz.html">${started ? "Continuer" : "Commencer"}</a>
+          </div>
+        </div>`;
+      })
+      .join("");
   }
 
   document.getElementById("reset-progress-btn").addEventListener("click", () => {
-    if (confirm("Réinitialiser toute votre progression sur cet appareil ?")) {
+    if (confirm("Réinitialiser la progression de TOUS les parcours sur cet appareil ?")) {
       Progress.reset();
-      renderChapterGrid();
+      renderModuleGrid();
       showToast("Progression réinitialisée");
     }
   });
 
-  renderChapterGrid();
+  renderModuleGrid();
 </script>
 </body>
 </html>
